@@ -1,5 +1,8 @@
 import datetime
-from fastapi import FastAPI
+import http
+import re
+from fastapi import FastAPI, Request, Response
+
 
 app = FastAPI()
 
@@ -12,4 +15,11 @@ async def root():
 @app.get("/timestamp")
 async def root():
     return {"message": datetime.datetime.now().isoformat()}
+
+
+@app.get("/webhook")
+async def webhook(request: Request):
+    # body = await request.json()
+    # print(body)
+    return {"message": "OK"}
         
