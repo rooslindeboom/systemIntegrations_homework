@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
-const port = 8000
+const port = 6000
 
 app.get('/', (req, res) => {
-  res.send('Hello World! kech')
+  res.send('Hello World!')
 })
 
 app.get('/timestamp', (req, res) => {
@@ -15,9 +15,9 @@ const http = require('http');
 
 function onRequest(request, response) {
     const options = {
-        host: 'https://8794-185-96-183-195.eu.ngrok.io',
+        host: 'http://127.0.0.1:8000',
         port: 8000,
-        path: '/timestamp'
+        path: '/time'
     };
 
     const body = '';
