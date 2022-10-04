@@ -2,10 +2,36 @@ const express = require('express')
 const app = express()
 const port = 6000
 
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Data authority API',
+      version: '0.0.1',
+    },
+  },
+  apis: ['/timestamp'], 
+};
+
+/**
+ * @openapi
+ * /:
+ *   get:
+ *     summary: returns Hello World
+ */
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+/**
+ * @openapi
+ * /timestamp:
+ *   get:
+ *     summary: Returns the current timestamp
+ *     responses:
+ *       200:
+ *         description: Returns the date
+ */
 app.get('/timestamp', (req, res) => {
   var date = new Date();
   res.send(date.toISOString())
@@ -15,7 +41,7 @@ const http = require('http');
 
 function onRequest(request, response) {
     const options = {
-        host: 'http://127.0.0.1:8000',
+        host: 'https://859a-94-18-243-162.eu.ngrok.io',
         port: 8000,
         path: '/time'
     };
